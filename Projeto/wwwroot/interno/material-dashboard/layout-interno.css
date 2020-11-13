@@ -1,0 +1,35 @@
+﻿.icon-escola {
+    padding: 20px;
+}
+
+.card-add-user {
+    margin-top: 0px !important;
+}
+
+.h5-form {
+    background-color: #6d6f716b;
+    color: white;
+    padding: 5px;
+}
+
+.card-bloco {
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+    .card-bloco:hover {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.1);
+    }
+.b-radio{
+    padding: 7px;
+}
+
+.div-check {
+    margin-top: 18px !important;
+}
+
+.div-check-mb {
+    margin-bottom: -26px !important;
+    margin-left: 15px !important;
+}

@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Confirmed";
+    Layout = "_Layout";
+}
+
+
+<h2>Cadastro confirmado</h2>
+
+<div class="uk-card uk-card-default">
+    <div>
+        <div class="uk-card uk-card-primary uk-card-body">
+            <h3 class="uk-card-title">Aguarde a liberação de acesso</h3>
+            <p>Seu cadastro foi enviado para o gestor do sistema.<br>
+                Assim que for autorizado, entre com login e senha registrados.</p>
+        </div>
+    </div>
+</div>
+
+<div class="uk-margin">
+    <a asp-action="Index" asp-controller="Home" class="uk-button  uk-align-right">
+        <span uk-icon="icon: reply"></span>
+        Voltar
+    </a>
+</div>

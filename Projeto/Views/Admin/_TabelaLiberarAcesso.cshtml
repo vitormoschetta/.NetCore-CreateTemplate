@@ -1,0 +1,56 @@
+@using Projeto.Utils
+@model PaginatedList<Projeto.Models.User>
+
+<table class="uk-table uk-table-small uk-table-responsive uk-table-divider">
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Username</td>
+                <td>
+                    <a asp-action="LiberarAcessoConfirmar" asp-route-id="@item.Id" class="icon-liberar-acesso">
+                        <span uk-icon="icon: unlock; ratio:0.9"></span>
+                    </a>
+                    <a asp-action="ExcluirPedidoAcesso" asp-route-id="@item.Id" class="icon-excluir">
+                        <span uk-icon="icon:trash; ratio:0.9"></span>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- ////////////////// Paginação ///////////////////////-->
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    var prev = Model.PageIndex - 1;
+    var next = Model.PageIndex + 1;
+
+}
+
+<ul class="uk-pagination" uk-margin>
+    <li>
+        <a href="#" onclick="Paginacao(@prev)">
+            <span uk-pagination-previous></span>
+        </a>
+    </li>
+    @for (int pag = 1; pag <= Model.TotalPages; pag++)
+    {
+        <li>
+            <a href="#" onclick="Paginacao(@pag)">@pag</a>
+        </li>
+    }
+    <li>
+        <a href="#" onclick="Paginacao(@next)">
+            <span uk-pagination-next></span>
+        </a>
+    </li>
+</ul>

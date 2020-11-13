@@ -1,0 +1,37 @@
+@using Projeto.Models
+@model Product
+
+<form>
+
+    <div class="uk-card uk-card-default uk-card-body">
+        <div class="uk-alert-primary" uk-alert>
+            <a class="uk-alert-close" uk-close></a>
+            <p>@ViewBag.Message</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label class="bmd-label-floating">Id</label> <br />
+                    @Model.Id
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">Nome</label>
+                    <input type="text" asp-for="Name" class="form-control" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="bmd-label-floating">CPF</label>
+                    <input type="text" asp-for="Price" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row" style="float: right;">
+            <a href="@Url.Action("Index","Product")" class="btn btn-secondary">Fechar</a>
+        </div>
+    </div>
+
+</form>

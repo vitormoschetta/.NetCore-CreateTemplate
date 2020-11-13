@@ -1,0 +1,29 @@
+<div class="uk-card uk-card-default uk-card-body">
+
+    <div class="pesquisa-add-titulo">
+        <div class="uk-text-left" uk-grid>
+            <div class="uk-width-2-5@s">
+                <h3>Usuários do Sistema</h3>
+            </div>
+            <div class="uk-width-1-4@s">
+                <a asp-action="AdicionarUsuario" asp-controller="Admin" class="uk-button uk-button-primary">
+                    <span uk-icon="icon:plus-circle; ratio:1"></span> Adicionar
+                </a>
+            </div>
+            <div class="uk-width-1-4@s">
+                <div class="uk-search uk-search-default">
+                    <span class="uk-search-icon-flip" uk-search-icon></span>
+                    <input class="uk-search-input" type="search" onkeyup="Procurar(this.value)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" formulario">
+        <div id="tabela-index">
+            <partial name="_TabelaUsuarios" />
+        </div>
+    </div>
+</div>
+
+<partial name="Scripts"></partial>

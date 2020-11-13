@@ -1,0 +1,107 @@
+@using Microsoft.AspNetCore.Http;
+@using System.Security.Claims
+@{
+    var user = Context.User.Identity.Name;
+    var role = Context.User.Claims
+        .Where(c => c.Type == ClaimTypes.Role).Select(c => c.Value).SingleOrDefault();
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Projeto</title>
+
+    <link rel="stylesheet" href="~/lib/uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="~/interno/material-dashboard/material-dashboard.css" />
+    <link href="~/interno/css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/interno.css" />
+    <link rel="stylesheet" href="~/css/layout-internal.css" />
+
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+
+            <div class="sidebar-heading text-white" style="height: 4rem; background-color: #0F7AE5">
+                <div class="logo">
+                    <a asp-action="Index" asp-controller="Home">
+                        <span uk-icon="world"></span>
+                        <span class="icon-sidebar">My App</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="list-group list-group-flush">
+
+                <div class="menu-lateral">
+                    <ul class="uk-list uk-list-large">
+                        @await Component.InvokeAsync("Menu", new { perfil = role} )
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div id="page-content-wrapper">
+
+            <nav class="margens" style="background-color: #0F7AE5" uk-navbar>
+
+                <a id="menu-toggle" style="padding-top: 1em;">
+                    <span style="color: white;" uk-icon="icon: menu; ratio: 1.5"></span>
+                </a>
+
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li>
+                            <a style="color: white;margin-bottom: -10px; margin-top:-10px" href="#">
+                                @user
+                            </a>
+                            <div class="uk-navbar-dropdown" style="margin-top: -10px;">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li><a asp-action="AlterarSenha" asp-controller="HomeInternal">Alterar Senha</a></li>
+                                    <li><a asp-action="Logout" asp-controller="Home">Sair</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+
+            <div class="container-fluid conteudo">
+                @RenderBody()
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/uikit/js/uikit.js"></script>
+    <script src="~/lib/uikit/js/uikit-icons.min.js"></script>
+    <script src="~/interno/vendor/jquery/jquery.min.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+</body>
+
+</html>

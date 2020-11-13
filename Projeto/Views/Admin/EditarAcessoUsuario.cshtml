@@ -1,0 +1,50 @@
+@using Projeto.Models
+@model User
+
+
+<form asp-action="EditarAcessoUsuario" method="POST">
+
+    <div class="uk-card uk-card-default uk-card-body">
+
+        <div class="pesquisa-add-titulo">
+            <legend class="uk-legend">Editar Acesso de Usuário</legend>
+        </div>
+
+        <div class="formulario">
+
+            <div asp-validation-summary="ModelOnly" class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+            </div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="uk-text-left" uk-grid>
+                <div class="uk-width-1-3@s">
+                    <label class="uk-form-label" for="form-stacked-text">Nome</label>
+                    <input type="text" asp-for="Username" class="uk-input" readonly>
+                    <span asp-validation-for="Username" class="uk-text-danger"></span>
+                </div>
+                <div class="uk-width-1-3@s">
+                    <label class="uk-form-label" for="form-stacked-text">Perfil</label>
+                    <select asp-for="Role" class="uk-select">
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                    </select>
+                </div>
+                <div class="uk-width-1-3@s">
+                    <label class="uk-form-label" for="form-stacked-text">Status</label>
+                    <select asp-for="Active" class="uk-select">
+                        <option value="true">Ativo</option>
+                        <option value="false">Inativo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <input type="submit" value="Concluir" class="uk-button uk-button-secondary" />
+                <a asp-action="ListaUsuarios" class="uk-button uk-button-default">Fechar</a>
+            </div>
+        </div>
+
+    </div>
+</form>

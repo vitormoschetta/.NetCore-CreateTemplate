@@ -1,0 +1,13 @@
+<script>
+
+    function Paginacao(pageNumber) {
+        var url = '@Url.Action("PaginationUser","Admin")';
+        Pagination(pageNumber, url);
+    }
+
+    function Procurar(parametro) {
+        var url = '@Url.Action("SearchUser","Admin")';
+        Search(parametro, url);
+    }
+
+</script>

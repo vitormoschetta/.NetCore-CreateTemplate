@@ -1,0 +1,38 @@
+@using Projeto.Models
+@model Product
+
+
+<form asp-action="Delete" method="POST">
+
+    <div class="uk-card uk-card-default uk-card-body">
+
+        <div class="pesquisa-add-titulo">
+            <legend class="uk-legend">Tem certeza que deseja Excluir?</legend>
+        </div>
+
+        <div class="formulario">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="uk-text-left" uk-grid>
+                <div class="uk-width-3-4@s">
+                    <label class="uk-form-label" for="form-stacked-text">Nome</label>
+                    <input type="text" asp-for="Name" class="uk-input" readonly>
+                    <span asp-validation-for="Name" class="uk-text-danger"></span>
+                </div>
+                <div class="uk-width-1-4@s">
+                    <label class="uk-form-label" for="form-stacked-text">Preço</label>
+                    <input type="text" asp-for="Price" class="uk-input" readonly>
+                    <span asp-validation-for="Price" class="uk-text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="uk-margin">
+                <input type="submit" value="Excluir" class="uk-button uk-button-danger" />
+                <a href="@Url.Action("Index","Product")" class="uk-button uk-button-default">Fechar</a>
+            </div>
+        </div>
+
+    </div>
+</form>

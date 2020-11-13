@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Vitor Moschetta",
+    "classifications": [
+        "Frontend",
+        "UIkit"
+    ],
+    "name": "Frontend UIkit",
+    "identity": "Moschetta.FrontendUIkit.CSharp",
+    "shortName": "frontuikit",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    }
+}
