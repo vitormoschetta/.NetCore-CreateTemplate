@@ -1,6 +1,6 @@
 # .NetCore-CreateTemplate
 
-Adicionar a seguinte pasta na raiz do projeto:
+Adicionar a seguinte pasta na raiz do projeto ou grupo de projetos em que se deseja gravar como template/modelo:
 ```
 .template.config
 ```
@@ -26,7 +26,7 @@ Dentro da pasta criada, adicione um novo arquivo com o seguinte código:
 Dê a ele o nome de 'template.json'
 
 
-Execute na raíz da aplicação o seguinte comando:
+Execute o seguinte comando no diretório da pasta '.template.config':
 ```
 dotnet new -i .\
 ```
